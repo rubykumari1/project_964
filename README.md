@@ -55,6 +55,8 @@ without training a new network from scratch.
 
 ---
 
+
+
 ## 4 · Quick start (Colab) <a id="quickstart"></a>
 
 ```python
@@ -85,17 +87,10 @@ png = "/content/drive/.../figshare_sorted/glioma/2195.png"
 bot = FigshareBot()
 print(bot.answer(png))```
 
-# 6. Example <a id="Analysis"></a>Output
-{
-  "predicted_tumour": "glioma",
-  "dice_vs_GT": "0.455",
-  "volume_cm3": "0.26",
-  "centroid_xy": [120, 135],
-  "overlay": "/content/overlay_2195.png"
-}
+---
 
+## 5 · Results
 
-## 5 · Results <a id="results"></a>
 | metric (240 × 240)    | value |
 | --------------------- | ----- |
 | **Mean Dice (val)**   | 0.435 |
@@ -103,16 +98,22 @@ print(bot.answer(png))```
 | **Best slice Dice**   | 0.837 |
 | **Median slice Dice** | 0.455 |
 
+---
 
-## 8 · Take-aways & future work <a id="future"></a>
+## 6 · Future Work
 
 BraTS weights give instant stability; random init needs 10 × epochs.
 Domain gap (3-D → 2-D) limits ceiling (~0.45 Dice).
 Elastic + focal loss adds ~0.05 Dice.
 Next steps: class-balanced sampler, CutMix, 2-D UNet++ ⇒ aim ≥ 0.60 Dice.
 
-##9 · Licence <a id="license"></a>
+---
+
+## 7 · Licence
 
 Code – MIT
 BraTS dataset – CC-BY-NC-SA
 Figshare single-slice dataset – CC-BY-Cheng, Jun, et al(2015)
+
+---
+
