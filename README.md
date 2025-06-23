@@ -72,8 +72,8 @@ drive.mount('/content/drive', force_remount=True)
 # Run demo notebook (segmentation + query-bot)
 !jupyter nbconvert --execute notebooks/Figshare_demo.ipynb
 
-## 5 · Training from scratch
-·  / fine-tune CLI <a id="train"></a>
+
+## 5 · Training from scratch·  / fine-tune CLI <a id="train"></a>
 python train_figshare.py \
   --csv "/content/drive/.../master_split_png.csv" \
   --root "/content/drive/.../figshare_sorted" \
@@ -95,7 +95,8 @@ print(bot.answer(png))
   "centroid_xy": [120, 135],
   "overlay": "/content/overlay_2195.png"
 }
-##7 · Results <a id="results"></a>
+
+## 7 · Results <a id="results"></a>
 | metric (240 × 240)    | value |
 | --------------------- | ----- |
 | **Mean Dice (val)**   | 0.435 |
@@ -104,7 +105,7 @@ print(bot.answer(png))
 | **Median slice Dice** | 0.455 |
 
 
-##8 · Take-aways & future work <a id="future"></a>
+## 8 · Take-aways & future work <a id="future"></a>
 
 BraTS weights give instant stability; random init needs 10 × epochs.
 Domain gap (3-D → 2-D) limits ceiling (~0.45 Dice).
