@@ -58,36 +58,34 @@ without training a new network from scratch.
 ## 4 · Quick start (Colab) <a id="quickstart"></a>
 
 ```python
-# Mount Drive
+# Mount Google Drive
 from google.colab import drive
 drive.mount('/content/drive', force_remount=True)
 
-# Clone repo
+# Clone this repo
 !git clone https://github.com/<YOUR-GH-USER>/project_964.git
 %cd project_964
 
-# Install deps
+# Install requirements
 !pip install albumentations==1.4.3 torch torchvision tqdm scikit-image h5py
 
-# Run demo notebook (segmentation + query-bot)
+# Run the demo notebook (segmentation + query-bot)
 !jupyter nbconvert --execute notebooks/Figshare_demo.ipynb
 
-
-## 5 · Training from scratch·  / fine-tune CLI <a id="train"></a>
 python train_figshare.py \
-  --csv "/content/drive/.../master_split_png.csv" \
+  --csv  "/content/drive/.../master_split_png.csv" \
   --root "/content/drive/.../figshare_sorted" \
   --brats-ckpt "/content/drive/.../brats_best.pt" \
   --out-dir models/figshare_run1 \
   --epochs 60 --batch 16
 
-## 6 · Query-bot usage <a id="bot"></a>
 from demo_package.scripts.mri_query_bot import FigshareBot
+
 png = "/content/drive/.../figshare_sorted/glioma/2195.png"
-
 bot = FigshareBot()
-print(bot.answer(png))
+print(bot.answer(png))```
 
+# 6. Example <a id="Analysis"></a>Output
 {
   "predicted_tumour": "glioma",
   "dice_vs_GT": "0.455",
@@ -96,7 +94,8 @@ print(bot.answer(png))
   "overlay": "/content/overlay_2195.png"
 }
 
-## 7 · Results <a id="results"></a>
+
+## 5 · Results <a id="results"></a>
 | metric (240 × 240)    | value |
 | --------------------- | ----- |
 | **Mean Dice (val)**   | 0.435 |
